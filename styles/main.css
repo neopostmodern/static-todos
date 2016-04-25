@@ -1,0 +1,62 @@
+* {
+    font-family: monospace;
+}
+html {
+    font-size: 120%;
+}
+
+input.wide {
+    width: 100%;
+}
+
+a.button {
+    text-decoration: none;
+
+    background: gray;
+    color: white;
+    padding: 0.1rem 0.3rem;
+}
+a.button:hover {
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 1rem;
+}
+
+.text-right {
+    text-align: right;
+}
+@media only screen and (min-width: 40.0625em) {
+    .text-right-medium {
+        text-align: right;
+    }
+}
+
+.row.todo-list__todo {
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+
+    box-shadow: 0 0 5px gray;
+}
+
+@media only screen and (max-width: 40.0625em) {
+    .margin-small-1 {
+        margin-bottom: 1rem;
+    }
+}
+@media only screen and (max-width: 64.0625em) {
+    .margin-medium-1 {
+        margin-bottom: 1rem;
+    }
+}
+
+#bar {
+    display: flex;
+
+    align-items: center;
+}
+
+#bar a:first-of-type {
+    margin-left: auto;
+}

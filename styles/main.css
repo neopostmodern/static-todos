@@ -9,14 +9,14 @@ input.wide {
     width: 100%;
 }
 
-a.button {
+a.button, button.button {
     text-decoration: none;
 
     background: gray;
     color: white;
     padding: 0.1rem 0.3rem;
 }
-a.button:hover {
+a.button, button.button:hover {
     cursor: pointer;
 }
 

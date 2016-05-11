@@ -18,35 +18,36 @@
 
             <main>
                 <div id="bar">
-                    <h1>New todo</h1>
+                    <h1>Editing todo</h1>
 
                     <a href="/" class="button">Discard</a>
                 </div>
-				
-				<form action="/new/insert" method="post">
+
+                
+				<form action="/edit/update" method="post">
 					
 					<div class="row" style="margin-bottom: 1rem">
 						<div class="small-12 columns">
-							<input type="text" name="desc" placeholder="Description" class="wide" />
+							<input type="text" name="desc" placeholder="Description" value="REPLACE_DESC" class="wide" />
 						</div>
 					</div>
 					<div class="row">
 						<div class="medium-4 small-6 margin-small-1 columns">
-							<input type="date" name="date"placeholder="Deadline" />
+							<input type="date" name="date" value="REPLACE_DATE" placeholder="Deadline" />
 						</div>
 						<div class="medium-4 small-6 margin-small-1 columns">
-							<input type="number" name="progress" placeholder="Progress" /> %
+							<input type="number" name="progress" value="REPLACE_PROGRESS" placeholder="Progress" /> %
 						</div>
 						<div class="medium-offset-0 small-4 small-offset-9 columns text-right">
-							<button name="creaate" class="button">Create</button>
+							<button name="id" value="REPLACE_ID" class="button">Save</button>
 						</div>
 					</div>
 				
 				</form>
             </main>
-			
+
             <footer>
-                <a href="about.html">About</a>
+                <a href="/about.html">About</a>
             </footer>
         </div>
     </div>

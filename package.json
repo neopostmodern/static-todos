@@ -7,12 +7,15 @@
     "url": "https://github.com/neopostmodern/static-todos"
   },
   "scripts": {
-    "serve": "python -m SimpleHTTPServer",
+    "serve": "C:\\devTools\\python27\\python -m SimpleHTTPServer",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "neopostmodern",
   "license": "UNLICENSED",
   "dependencies": {
-    "foundation-grid": "^0.1.0"
+	"expres": "~4.1.0"
+    "foundation-grid": "^0.1.0",
+    "mongodb": "~2.0",
+	"body-parser": "~1.1.0"
   }
 }

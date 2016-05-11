@@ -2,6 +2,9 @@
 
 // configure
 var fs = require('fs');
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -16,8 +19,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // setup database connection
-var mongodb = require('mongodb');
-var MongoClient = mongodb.MongoClient;
 var database;
 MongoClient.connect('mongodb://localhost:27017/todo', function(err, db) {
   if (err) {
@@ -81,10 +82,17 @@ app.get('/new.html', function (req, res) {
 // post requests
 app.post('/delete', function(req, res) {
   var id = req.body.id;
-  database.collection('todo').remove({_id: new mongodb.ObjectID(id)});
-  console.log("todo.removeByID(" + id + ")")
-
-  res.redirect("/?message=Delete%20successful");
+  database.collection('todo').removeOne(
+    {_id: new mongodb.ObjectID(id)},
+    (error, result) => {
+      if (error) {
+        console.error(error);
+        res.redirect("/?message=Delete failed");
+      } else {
+        res.redirect("/?message=Delete successful");
+      }
+    }
+  );
 });
 
 app.post('/edit', function(req, res) {
@@ -105,9 +113,17 @@ app.post('/new/insert', function(req, res) {
   var date = req.body.date;
   var progress = req.body.progress;
 
-  database.collection('todo').insert({ desc, date, progress});
-
-  res.redirect("/?message=Insert%20successful");
+  database.collection('todo').insertOne(
+    { desc, date, progress},
+    (error, result) => {
+      if (error) {
+        console.error(error);
+        res.redirect("/?message=Insert failed");
+      } else {
+        res.redirect("/?message=Insert successful");
+      }
+    }
+  );
 });
 
 app.post('/edit/update', function(req, res) {
@@ -115,9 +131,18 @@ app.post('/edit/update', function(req, res) {
   var date = req.body.date;
   var progress = req.body.progress;
 
-  database.collection('todo').update({'_id': new mongodb.ObjectID(req.body.id)}, {$set: { desc, date, progress}}, {w:1});
-
-  res.redirect("/?message=Update%20successful");
+  database.collection('todo').updateOne(
+    { '_id': new mongodb.ObjectID(req.body.id) },
+    { $set: { desc, date, progress} },
+    (error, result) => {
+      if (error) {
+        console.error(error);
+        res.redirect("/?message=Update failed");
+      } else {
+        res.redirect("/?message=Update successful");
+      }
+    }
+  );
 });
 
 app.listen(3000, function () {

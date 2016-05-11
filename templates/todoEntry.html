@@ -9,9 +9,13 @@
 		REPLACE_PROGRESS
 	</div>
 	<div class="large-1 medium-2 medium-offset-8 small-3 small-offset-6 columns text-right">
-		<a class="button">Delete</a>
+		<form action="/delete" method="post">
+			<button class="button"  name="id" value="REPLACE_ID">Delete</button>
+		</form>	
 	</div>
 	<div class="large-1 medium-2 small-3 columns text-right">
-		<a href="/edit/1.html" class="button">Edit</a>
+		<form action="/edit" method="post">
+			<button class="button" name="id" value="REPLACE_ID">Edit</button>
+		</form>
 	</div>
 </div>

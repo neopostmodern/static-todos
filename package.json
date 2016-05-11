@@ -13,7 +13,9 @@
   "author": "neopostmodern",
   "license": "UNLICENSED",
   "dependencies": {
+	"expres": "~4.1.0"
     "foundation-grid": "^0.1.0",
-    "mongodb": "~2.0"
+    "mongodb": "~2.0",
+	"body-parser": "~1.1.0"
   }
 }

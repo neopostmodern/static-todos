@@ -7,14 +7,16 @@ Install dependencies
 	
 Create mongo database called "todo". Type in mongo shell:
 
-		use todo
+	use todo
 
 
 ## Run
-Start mongo
+*In case you have no deamon: start mongo*
 	
 	mongo
 
-Run via provided npm script
+Run with default npm command:
 
-    node app.js
+    npm run start
+
+App will be served at [locahost:3000](http://localhost:3000/)

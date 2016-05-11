@@ -9,6 +9,9 @@ input.wide {
     width: 100%;
 }
 
+button.button {
+    border: none;
+}
 a.button, button.button {
     text-decoration: none;
 
@@ -59,4 +62,11 @@ footer {
 
 #bar a:first-of-type {
     margin-left: auto;
+}
+
+#message {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px black dashed;
+    box-sizing: border-box;
 }

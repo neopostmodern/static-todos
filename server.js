@@ -112,7 +112,8 @@ app.post('/new/insert', function(req, res) {
   var desc = req.body.desc;
   var date = req.body.date;
   var progress = req.body.progress;
-
+  if(!validateInput(res, desc, date, progress)) return;
+  
   database.collection('todo').insertOne(
     { desc, date, progress},
     (error, result) => {
@@ -130,6 +131,7 @@ app.post('/edit/update', function(req, res) {
   var desc = req.body.desc;
   var date = req.body.date;
   var progress = req.body.progress;
+  if(!validateInput(res, desc, date, progress)) return;
 
   database.collection('todo').updateOne(
     { '_id': new mongodb.ObjectID(req.body.id) },
@@ -145,6 +147,24 @@ app.post('/edit/update', function(req, res) {
   );
 });
 
+
+function validateInput(res, desc, date, progress)
+{
+	if(desc == "" || date == "" || progress == "")
+  {
+	  res.redirect("/?message=Invalid input: all parameters must be set");
+	  return false;
+  }else if(progress < 0 || progress >  100)
+  {
+	  res.redirect("/?message=Invalid input: progress must be in range [0,100]");
+	  return false;
+  }
+  
+  return true;
+}
+
+
+// --- START SERVER -----
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });

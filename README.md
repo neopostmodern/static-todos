@@ -13,6 +13,7 @@ Create mongo database called "todo". Type in mongo shell:
 ## Run
 *In case you have no deamon: start mongo*
 	
+	mongod
 	mongo
 
 Run with default npm command:
